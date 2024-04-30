@@ -26,6 +26,7 @@ import {
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  loading?: boolean;
 }
 
 import { Button } from "@/components/ui/button";
@@ -36,10 +37,13 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { DialogCrack } from "./columns";
+import { DataTablePagination } from "./data-table-pagination";
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  loading,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -60,7 +64,6 @@ export function DataTable<TData, TValue>({
     getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
     onRowSelectionChange: setRowSelection,
-
     state: {
       sorting,
       columnFilters,
@@ -79,6 +82,10 @@ export function DataTable<TData, TValue>({
             table.getColumn("email")?.setFilterValue(event.target.value)
           }
           className='max-w-sm'
+        />
+        <DialogCrack
+          type='add'
+          reset={() => table.reset()}
         />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -149,29 +156,14 @@ export function DataTable<TData, TValue>({
                 <TableCell
                   colSpan={columns.length}
                   className='h-24 text-center'>
-                  No results.
+                  {loading ? "loading.." : "No results."}
                 </TableCell>
               </TableRow>
             )}
           </TableBody>
         </Table>
       </div>
-      <div className='flex items-center justify-end space-x-2 py-4'>
-        <Button
-          variant='outline'
-          size='sm'
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}>
-          Previous
-        </Button>
-        <Button
-          variant='outline'
-          size='sm'
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}>
-          Next
-        </Button>
-      </div>
+      <DataTablePagination table={table} />
     </div>
   );
 }
