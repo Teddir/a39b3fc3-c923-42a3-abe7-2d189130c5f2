@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Challenge - Ambisius
 
-## Getting Started
+website dengan manajement data yang power full.
 
-First, run the development server:
+## Teknologi yang Digunakan
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Website ini dibuat menggunakan teknologi berikut:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Next.js & TypeScript**: Kerangka kerja React yang mengizinkan pengembangan aplikasi web yang optimal dan berskala dengan dukungan TypeScript untuk penulisan kode yang lebih aman dan mudah dikelola.
+- **Firebase**: Platform pengembangan yang digunakan untuk menyediakan backend, autentikasi pengguna, dan fitur realtime database.
+- **Zod**: Pustaka untuk validasi skema yang membantu dalam validasi data yang masuk untuk menjaga integritas aplikasi.
+- **TanStack Query**: Pustaka yang efisien untuk pengelolaan state dan fetching data, memudahkan pengelolaan data yang berasal dari operasi asynchronous.
+- **TanStack Table**: Pustaka yang kuat untuk membangun dan mengelola tabel yang kompleks dengan data yang interaktif dan mudah disesuaikan.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Fitur Utama
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Manajemen data dengan tabel yang responsif.
+- Fetching data dinamis dengan cache yang efisien.
 
-## Learn More
+## Pengaturan Lokal
 
-To learn more about Next.js, take a look at the following resources:
+Untuk menjalankan proyek ini di lokal Anda, ikuti langkah-langkah berikut:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Klon repositori ini.
+2. Install dependensi:
+   ```bash
+   npm install
+   ```
+3. Buat dan konfigurasi file `.env.local` dengan kunci API dan konfigurasi lain dari Firebase.
+4. Jalankan server pengembangan:
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Server lokal akan berjalan di `http://localhost:3000`.
 
-## Deploy on Vercel
+## Lisensi
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
